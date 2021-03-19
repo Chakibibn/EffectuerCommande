@@ -1,0 +1,14 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/yeti/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css';
+
+.table-sortable th:not([data-sortable="false"]) {
+    cursor: pointer;
+}
+
+.table-sortable th:not([data-sortable="false"])::after {
+    content: " " attr(data-sort-direction);
+}
+
+.table-sortable th[data-sortable="false"] {
+    background-color: #f08080;
+}

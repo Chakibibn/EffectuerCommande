@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body style="background-color: #343a40">
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header" style="background-color: #343a40;color: #fac564;border-color:#6c757d ">
+            THANK YOU :) !
+        </div>
+        <div class="card-body" style="background-color: #343a40;color: #fac564;border-color:#6c757d">
+            <h5 style="background-color: #343a40;color: #fac564;border-color:#6c757d" class="card-title" th:text="${'Mr : '+user.getUsername()}"></h5>
+
+            <p style="background-color: #343a40;color: #fac564;border-color:#6c757d" class="card-text" th:text="${'Price : '+price.getPrixtotal()+'DZA'}"></p>
+            <p style="background-color: #343a40;color: #fac564;border-color:#6c757d" class="card-text"> Thanks for buying our pizza's </p>
+
+        </div>
+        <div class="card-footer text-muted" style="background-color: #343a40;color: #fac564;border-color:#6c757d">
+            <a th:href="${'/product'}" class="btn btn-primary">->  ORDER MORE <-</a>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br>
+<div style="width: 100%">
+    <div style="margin-left: 600px; color: #fac564">&copy; Architecture Logiciel 2020/2021</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Pidza</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}"/>
+
+</head>
+<body style="background-color: #343a40;">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #343a40">
+    <div class="container-fluid" >
+        <a class="navbar-brand float-left" href="#" style="color: #fac564">Pidza</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+        <div class="collapse navbar-collapse float-right" id="navbarNav" >
+            <ul class="navbar-nav" >
+                <li class="nav-item"  >
+                    <a class="nav-link active" aria-current="page" th:href="@{'/welcome'}" style="color: #fac564">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#nospizza" style="color: #fac564">Nos Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#localisation" style="color: #fac564">Localistaion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="${'/product'}" style="color: #fac564">Commander</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+<div id="nospizza">
+
+<div class="container" style="margin-left: 540px">
+    <h1>NOS PIZZAS</h1>
+</div>
+</div>
+<!-- ******************************** cards *******************************-->
+
+<div class="container">
+    <div class="row" >
+        <div th:each="p : ${pizzas}" class="col-sm-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="imaa2"><img  th:src="${p.getImageurl()}" style="border-radius: 50%; height: 100px;width: 100px"/></div>
+                    <h5 class="card-title" th:text="${p.getNompizza()}">Pizza name</h5>
+                    <p>Price : <span class="card-text" th:text="${p.getPrixpizza()}">Price</span> DZA</p>
+                    <!-- <ul th:each="i : ${p.getIngredients()}" style="display: inline-block">
+                         <li th:text="${i.getNominngridiant()}"></li>
+                     </ul>-->
+
+
+                    <a  th:href="${'/product'}" class="btn btn-primary">Commander</a>
+                    <a class="btn btn-danger" th:href="${'/welcome/ingridients/'+p.getIdpizza()}" th:value="${p.getIdpizza()}" name="composant"  >COMPOSANT</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col-md-6 product-container-outer" th:each="p : ${pizzas}">
+        <div class="product-container-padding">
+            <div class="header-bg-color product-container-inner" style="height: 140px">
+
+                <h3 th:text="${p.getNompizza()}"></h3>
+                <h4 th:text="${p.getNompizza()}"></h4>
+                <div class="move-to-bottom-right">
+                    <form th:action="@{/store}" method="post">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button th:href="@{thankyou}" class="btn btn-danger btn-sm"
+                                    th:text="${p.getPrixpizza()} + ' BUY NOW'" type="submit" name="buyNow"
+                                    th:value="${p.getIdpizza()}"></button>
+                            <button class="btn btn-default btn-sm" type="submit" name="addToCart"
+                                    th:value="${p.getIdpizza()}">Add To Cart
+                            </button>
+                            <a th:href="@{workinprogress}" class="btn btn-warning btn-sm">Wish List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="container" style="margin-left: 540px">
+    <h1 >NOS BOISSONS</h1>
+</div>
+<div class="container">
+
+    <div class="row" >
+        <div th:each="b : ${boissons}" class="col-sm-4">
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <div class="imaa2"><img  th:src="${b.getImageurl()}" style="border-radius: 50%; height: 100px;width: 100px"/></div>
+                    <h5 class="card-title" th:text="${b.getNomboisson()}">Pizza name</h5>
+                    <p>Price : <span class="card-text" th:text="${b.getPrixboisson()}">Price</span> DZA</p>
+
+                    <a  th:href="${'/product'}" class="btn btn-primary">Commander</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ******************************** localistaion *******************************-->
+<div  id="localisation">
+<div class="container" style="margin-left: 540px">
+    <h1 >LOCALISATION</h1>
+</div>
+    </div>
+<!--
+<table class="table">
+    <tr><td>Id</td>
+    <td>nom</td>
+    <td>prix</td></tr>
+    <tr th:each="p:${pizzas}">
+        <td th:text="${p.getIdpizza()} "></td>
+        <td th:text="${p.getNompizza()}"></td>
+        <td th:text="${p.getPrixpizza()}"></td>
+     </tr>
+
+</table>
+-->
+<div class="container">
+    <table class="table">
+        <thead >
+        <td>Nommag</td>
+        <td>Willaya</td>
+        <td>Adress</td>
+        </thead>
+        <tbody>
+        <tr th:each="l : ${magasins}">
+            <td th:text="${l.getNommagasin()}"></td>
+            <td th:text="${l.getVille().getNomville()}"></td>
+            <td th:text="${l.getAdresse()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+
+<br><br><br><br><br><br>
+<div style="width: 100%">
+    <div style="margin-left: 600px; color: #fac564">&copy; Architecture Logiciel 2020/2021</div>
+</div>
+
+
+</body>
+</html>

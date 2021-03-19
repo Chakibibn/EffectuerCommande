@@ -1,0 +1,151 @@
+<!DOCTYPE html >
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Personnaliser</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/check.css}"/>
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #343a40">
+    <div class="container-fluid" >
+        <a class="navbar-brand float-left" href="#" style="color: #fac564">Pidza</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+        <div class="collapse navbar-collapse float-right" id="navbarNav" >
+            <ul class="navbar-nav" >
+                <li class="nav-item" >
+                    <a class="nav-link active" aria-current="page" th:href="@{'/welcome'}" style="color: #fac564">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: #fac564">Nos Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: #fac564">Localistaion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="${'/product'}" style="color: #fac564">Commander</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+<div style="text-align:  center;width: 100%;">
+    <div style="margin-left: 700px;"><div class="imaa2" ><img  th:src="${p.getImageurl()}" style="border-radius: 50%; height: 100px;width: 100px"/></div>
+    </div>
+    <div><h3 style="color: #fac564" th:text="${p.getNompizza()}"></h3></div>
+
+</div>
+<div style="border-radius: 10%;width: 30%;border: 1px solid #fac564; margin-left: 520px">
+    <form method="post" th:action="${'/cart/pizzzaa/'}" >
+    <ul th:each="pp:${kk}">
+
+        <li style="display: inline-block; list-style: none">
+        <li style="color: #fac564; list-style: none">
+            <input
+                    id="idingridient" name="idingridient"
+                    type="checkbox" th:value="${pp.getIngridient().getIdingridient()}"  th:text="${pp.getIngridient().getNomingridient()}" th:checked="${pp.getIngridientexist()}" />
+
+            <span th:text="${' ................................................'+pp.getIngridient().getPrixingridient()+' DZA'}"></span>
+        </li>
+
+
+    </ul>
+    <ul >
+    <li style="margin-left: 120px; list-style: none">
+
+             <button type="submit" name="caculer" th:value="${id}" class="btn btn-success">valider</button>
+
+   </li>
+    </ul>
+    </form>
+
+</div>
+</div>
+<!--
+<div class="container">
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <form method="post" th:action="${'/cart/pizzzaa/'}" >
+            <table class="table table-bordered table-striped mb-0" >
+                <tr>
+
+                    <td>Prix</td>
+                    <td>Selectionner</td></tr>
+
+                <tr th:each="pp:${kk}">
+
+                        <td>
+                        <input
+                                id="idingridient" name="idingridient"
+                                type="checkbox" th:value="${pp.getIngridient().getIdingridient()}" th:text="${pp.getIngridient().getNomingridient()}" th:checked="${pp.getIngridientexist()}" />
+
+                    </td>
+                    <td th:text="${pp.getIngridient().getPrixingridient()}"></td>
+
+                </tr>
+
+               <tr>
+                    <td colspan="2"></td>
+                    <td><button type="submit" name="caculer" th:value="${id}" class="btn btn-primary">valider</button></td>
+                </tr>
+
+
+            </table>
+        </form>
+    </div>
+</div>
+
+-->
+
+<!--
+<div class="container">
+    <ul th:each="pp:${pizza}" style="style: none;" class="list-group">
+        <li class="list-group-item">
+            <input
+                    id="idingridient" name="idingridient"
+                    type="checkbox" th:value="${pp.getIdingridient()}"  th:checked="${pp.getIngridient_pizzas().get(id).getIngridientexist()}"/>
+            <span th:text="${pp.getNomingridient()}"></span>
+        </li >
+        <li th:text="${pp.getPrixingridient()}" class="list-group-item"></li>
+
+
+    </ul>
+</div>-->
+<!--
+<br><br><br><br><br><br><br><br>
+
+<div  class="container" style="overflow: hidden">
+    <div style="float: left; width: 40%; border: 1px solid #fac564">
+        <div class="center">
+            <div class="imaa2"><img  th:src="${p.getImageurl()}" style="border-radius: 50%; height: 100px;width: 100px"/></div>
+            <div><h3 style="color: #fac564" th:text="${p.getNompizza()}"></h3></div>
+        </div>
+    </div>
+    <div style="float: right;width: 40%;border: 1px solid #fac564;">
+        <ul th:each="pp:${kk}">
+
+            <li style="display: inline-block">
+                <li style="color: #fac564">
+                    <input
+                            id="idingridient" name="idingridient"
+                            type="checkbox" th:value="${pp.getIngridient().getIdingridient()}"  th:text="${pp.getIngridient().getNomingridient()}" th:checked="${pp.getIngridientexist()}" />
+
+                   <span th:text="${' ...................... '+pp.getIngridient().getPrixingridient()+' DZA'}"></span>
+                </li>
+
+
+        </ul>
+    </div>
+</div>-->
+<br><br><br><br><br><br>
+<div style="width: 100%">
+    <div style="margin-left: 600px; color: #fac564">&copy; Architecture Logiciel 2020/2021</div>
+</div>
+</body>
+</html>

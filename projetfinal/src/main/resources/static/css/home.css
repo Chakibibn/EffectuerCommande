@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+.imaa{
+
+    height: 100px;
+    border-radius:50% ;
+    width: 100px;
+    border : 1px solid #343a40;
+}
+.imaa2{
+
+    height: 100px;
+    border-radius:50% ;
+    width: 100px;
+    border : 1px solid #343a40;
+}
+
+td{color: #fac564;}
+body{
+    /*background-color: #000000;*/
+}
+p{color: #fac564;}
+h1{
+    color: #fac564;
+}
+button {
+    color: #fac564;
+}
+span{
+    color: #fac564;
+}
+h5{
+    color: #fac564;
+}
+.card{
+    background-color: #343a40;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+.style2:before{
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background-color:#20c4d5;
+    border-radius: 50%;
+    top: 16.5px;
+    left: 15px;
+    box-shadow: 15px 0 0 #20c4d5,8px 5px 0 16px white;
+    transition: 0.3s;
+}
+.style2:after{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 20px;
+    background-color: #20c4d5;
+    border-radius: 25px 25px 0 0;
+    top: 28px;
+    left: 16px;
+    transition: 0.3s;
+}
+.style2:checked{
+    background-color:#ffc64c;
+}
+.style2:checked:before{
+    left: 60px;
+    background-color:#ffc64c;
+    box-shadow: 15px 0 0 #ffc64c,
+    8px 5px 0 16px white;
+}
+.style2:checked:after{
+    left: 62px;
+    border-radius:0 0 25px 25px;
+    background-color:#ffc64c;
+}

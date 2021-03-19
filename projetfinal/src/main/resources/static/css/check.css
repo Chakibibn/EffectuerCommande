@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body{
+    background-color: #343a40;
+}
+input{
+    background-color: #343a40;
+    color: #fac564;
+}
+td{
+    color: #fac564;
+
+}
